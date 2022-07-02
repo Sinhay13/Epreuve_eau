@@ -20,6 +20,7 @@ def minis(x):
         if int(x[i])<mini:
             mini=int(x[i])
     return str(mini)
+    
 #determination  du chifre maxi d'un nombre
 def maxis(x):
     maxi=int(x[0])
