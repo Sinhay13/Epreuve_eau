@@ -1,5 +1,6 @@
 import sys
 
+# Recuperation du data avec teste d'erreur si pas d'argument
 def input_data():
     l = sys.argv[1:]
     if len(l)<1:
@@ -7,6 +8,7 @@ def input_data():
       sys.exit()
     return l
 
+#boucle while pour inverser les arguments 
 def inverse_data(l):
   n=len(l)-1
   while n>=0:
@@ -16,7 +18,7 @@ def inverse_data(l):
     
   
   
-
+# appel des fonctions 
 
 l=input_data()
 inverse_data(l)
