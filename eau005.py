@@ -20,6 +20,7 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 import sys
 
+#Recuperation DATA +teste d'error
 def input_data (): 
     l = sys.argv[1:]
     if len(l)!=2:
@@ -31,23 +32,18 @@ def input_data ():
         sys.exit()
     except:
         return l
-'''
+      
+#Boucle pour detecter si la chaine de caractére rechercher est presante
 def reseach(l):
   response=False
   word= l[0]
   piece= l[1]
-  n=0
   for i in range(len(word)):
-    if word[i]!=piece[n]:
-      n+=1
-    elif word[i:(len(piece)+i)]==piece:
+    if word[i]==piece[0]:
+      if word[i:(len(piece)+i)]==piece:
         response=True
   print(response)
-'''      
-        
     
-
-
-
+#appel des fonctions:
 l= input_data()
-print(l)
+reseach(l)
