@@ -15,30 +15,30 @@ Afficher error et quitter le programme en cas de problèmes d’arguments.
 
 import sys
 
-#Recuperation DATA +teste d'error
-def input_data (): 
+#Recuperation DATA +teste d'error:
+def input_data ():
   l = sys.argv[1:]
   phrase=" ".join(l) 
   try:
-      l_int=int(l[0])
-      print("error")
+      phrase_int=int(phrase)
+      phrase="error"
       sys.exit()
   except:
       return phrase
 
-def Majuscule(phrase):
+#Mise en majuscule de la premiere lettre de chaque mots et le reste en minuscule:
+def Majuscule_Minuscule(phrase):
   l=phrase.split()
   l_final=[]
   for word in l:
-    word= word[0].upper() + word[1:]
-    l_final.append(word)
+    word= word[0].upper() + word[1:].lower()
+    l_final.append(word)    
   phrase=" ".join(l_final)
-  print(phrase)
+  return phrase
   
-  
-
-
-
+#Appels des differentes fonctions: 
 phrase=input_data()
-Majuscule(phrase)
+phrase=Majuscule_Minuscule(phrase)
+print(phrase)
+
 
