@@ -42,3 +42,4 @@ phrase=Majuscule_Minuscule(phrase)
 print(phrase)
 
 
+#Pas fini......
