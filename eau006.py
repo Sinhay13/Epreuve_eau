@@ -28,23 +28,46 @@ def input_data ():
   except:
       return phrase
 
-def Majuscule(phrase):
-  phrase_list=phrase.split()  
-  for word in phrase_list:
-    lst=list(word)
-    N=1
-    while N < len(word):
-        lst[N]=word[N].upper()
-        N+=2
-    phrase= ' '.join(lst) 
-    print(phrase)
+# mise sous forme de liste:
+def faire_une_liste (phrase):
+  liste=list(phrase)
+  return liste
+
+#majuscule une sur deux :
+def Majuscule(liste):
+  for i in range(len(liste)):
+    if liste[i] != " " and i%2==0:
+      liste[i]= liste[i].upper()
+    else:
+      liste[i]=liste[i].lower()
+  return liste
+
+# Gestion des espaces vides:
+def vide (liste): 
+  for n in range(len(liste)):
+    if liste[n] == " ":
+      if liste[n-1].isupper():
+        liste[n+1]=liste[n+1].lower()
+        liste= liste[0:n+2]+Majuscule(liste[n+2:])
+      else:
+        liste= liste[0:n+1]+Majuscule(liste[n+1:])
+  return liste
+
+  #Affichage resultat
+def resultat (liste):
+  phrase = "".join(liste)
+  print(phrase)
 
 
 
-
-
+#appel des fonctions: 
 phrase=input_data()
-Majuscule(phrase)
+liste= faire_une_liste(phrase)
+liste=Majuscule(liste)
+liste=vide(liste)
+resultat(liste)
 
-# trouver une autre facon de transformer en majuscul
+
+
+
 
