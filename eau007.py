@@ -40,6 +40,3 @@ def Majuscule_Minuscule(phrase):
 phrase=input_data()
 phrase=Majuscule_Minuscule(phrase)
 print(phrase)
-
-
-#Pas fini......
