@@ -26,42 +26,46 @@ def input_data ():
   else:
       return l
 
-# creation d'une liste avec la valeur ascii des lettre ce trouven a n position: 
-def liste_ascii (l, n=0):
-    l_ascii=[]
-    for word in l:
-        l_ascii.append(str(ord(word[n])))
-    return l_ascii
-    
+# Comparaison de deux élément par ordre ascii:
+def compare (a,b):
+    n=0
+    if a==b:
+        return 0
+    while a[n]==b[n]:
+        n+=1
+    return ord(a[n])-ord(b[n])
 
-# creation d'un dictionaire avec les deux listes:
-def dictionaire(l, l_ascii):
-    dico= dict(zip(l_ascii, l))
-    cle= sorted(dico)
-    return dico, cle
+# Mis en ordre ascii avec tri à bulle: 
+def bulle_ascii (l):
+    n=0
+    limite=len(l)
+    while n<limite:
+        if n+1==limite:
+            return l
+        tmp=compare(l[n],l[n+1])
+        if tmp >0:
+            l_tmp= l[n]
+            l[n]=l[n+1]
+            l[n+1]=l_tmp
+            n=0
+        else:
+            n+=1
 
-#teste des lettre en double:
-def doublette (l, dico, cle, n=0):
-    N=len(cle)
-    while n<N:
-        pass
 
 
-# creation d'une liste ordoner et affichage du resultat:
-def trier(dico, cle):
-    l_final=[]
-    for i in range(len(cle)):
-        l_final.append(dico[cle[i]])
-    phrase=" ".join(l_final)
+#Transformation de la la liste en chaine de caractére:
+def final(l):
+    phrase=" ".join(l)
     print(phrase)
 
-      
-#appel des fonction:
-l= input_data()
-l_ascii=liste_ascii(l)
-dico,cle= dictionaire(l, l_ascii)
-#dico,cle=doublette(dico, cle)
-trier(dico, cle)
+        
+
+
+
+# Appel des fonctions: 
+l=input_data()
+l=bulle_ascii(l)
+final(l)
 
 
 
@@ -69,5 +73,4 @@ trier(dico, cle)
 
 
 
-
-
+        
